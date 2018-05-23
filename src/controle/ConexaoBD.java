@@ -26,7 +26,7 @@ public class ConexaoBD {
         try {
             System.setProperty("jdbc.Drivers", driver);
             con = DriverManager.getConnection(caminho, usuario, senha);
-            JOptionPane.showMessageDialog(null, "Conexao Efetuada com sucesso!");
+            //JOptionPane.showMessageDialog(null, "Conexao Efetuada com sucesso!");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao se conectar com o banco de dados:\n"+ex.getMessage());
         }
@@ -35,7 +35,7 @@ public class ConexaoBD {
     public void desconecta(){
         try {
             con.close();
-            JOptionPane.showMessageDialog(null, "BD desconectado com sucesso!");
+            //JOptionPane.showMessageDialog(null, "BD desconectado com sucesso!");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao fechar conexao com BD:\n"+ex.getMessage());
             
