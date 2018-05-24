@@ -9,14 +9,23 @@ package modeloBeans;
  *
  * @author patri
  */
-public class Produtos {
+public class BeansProdutos {
     
-     private int codigo;
-     private String descricao;
-     private String fabricante;
-     private String categoria;
-     private float preco;
-     private int estoque;
+    private int codigo;
+    private String descricao;
+    private String fabricante;
+    private String categoria;
+    private double preco;
+    private int estoque;
+    private String pesquisa;
+
+    public String getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(String pesquisa) {
+        this.pesquisa = pesquisa;
+    }
     
 
     /**
@@ -78,17 +87,14 @@ public class Produtos {
     /**
      * @return the preco
      */
-    public float getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-    /**
-     * @param preco the preco to set
-     */
-    public void setPreco(float preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
-
+    
     /**
      * @return the estoque
      */

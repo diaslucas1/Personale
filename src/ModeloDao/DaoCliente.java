@@ -32,9 +32,9 @@ public class DaoCliente {
             pst.setString(5, cli.getDataNascimento());
             pst.setString(6, cli.getEmail());
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Paciente salvo com sucesso!");
+            JOptionPane.showMessageDialog(null, "Cliente salvo com sucesso!");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao salvar paciente!\nErro:"+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao salvar cliente!\nErro:"+ex.getMessage());
         }
         
         

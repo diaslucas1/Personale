@@ -33,10 +33,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItemCadFuncionario = new javax.swing.JMenuItem();
         jMenuItemCadCliente = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItemCadProduto = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
 
@@ -60,32 +57,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItemCadFuncionario);
 
         jMenuItemCadCliente.setText("Cliente");
+        jMenuItemCadCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadClienteActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItemCadCliente);
 
+        jMenuItemCadProduto.setText("Produto");
+        jMenuItemCadProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadProdutoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemCadProduto);
+
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Consultas");
-
-        jMenuItem3.setText("Clientes");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem3);
-
-        jMenuItem4.setText("Funcionarios");
-        jMenu2.add(jMenuItem4);
-
-        jMenuItem9.setText("Produtos");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem9);
-
-        jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Relatórios");
 
@@ -116,14 +103,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
-
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
         //botão sair
         conecta.desconecta();
@@ -134,6 +113,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         CadastroFunc tela = new CadastroFunc();
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItemCadFuncionarioActionPerformed
+
+    private void jMenuItemCadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadClienteActionPerformed
+        CadastroCliente tela = new CadastroCliente();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItemCadClienteActionPerformed
+
+    private void jMenuItemCadProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadProdutoActionPerformed
+        CadastroProduto tela = new CadastroProduto();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItemCadProdutoActionPerformed
 
 
     /**
@@ -174,14 +163,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonSair;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuItem jMenuItemCadCliente;
     private javax.swing.JMenuItem jMenuItemCadFuncionario;
+    private javax.swing.JMenuItem jMenuItemCadProduto;
     // End of variables declaration//GEN-END:variables
 }
