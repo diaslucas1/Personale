@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 public class TelaPrincipal extends javax.swing.JFrame {
     
     ConexaoBD conecta = new ConexaoBD();
+    
     /**
      * Creates new form TelaPrincipal
      */

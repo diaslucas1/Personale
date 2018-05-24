@@ -5,9 +5,9 @@
  */
 package modeloBeans;
 
-public class Cliente {
-    
-    //NASCIMENTO - nn - tamanho de     
+public class BeansCliente {
+         
+    private int cliente_cod;
     private String nome;
     private String cpf;
     private String dataNascimento;
@@ -16,7 +16,15 @@ public class Cliente {
     private String email;
     
     
+    
+    public int getCliente_cod() {
+        return cliente_cod;
+    }
 
+    public void setCliente_cod(int cliente_cod) {
+        this.cliente_cod = cliente_cod;
+    }
+    
     /**
      * @return the nome
      */
@@ -73,6 +81,15 @@ public class Cliente {
      */
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+    
+    
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     /**
