@@ -5,7 +5,7 @@
  */
 package view;
 
-import controle.ConexaoBD;
+import ModeloConection.ConexaoBD;
 import javax.swing.JOptionPane;
 public class TelaPrincipal extends javax.swing.JFrame {
     
@@ -130,7 +130,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSairActionPerformed
 
     private void jMenuItemCadFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadFuncionarioActionPerformed
-        FormFuncionario tela = new FormFuncionario();
+        CadastroFunc tela = new CadastroFunc();
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItemCadFuncionarioActionPerformed
 
