@@ -14,7 +14,15 @@ public class BeansCliente {
     private String endereco;
     private String telefone;
     private String email;
-    
+    private String pesquisa;
+
+    public String getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(String pesquisa) {
+        this.pesquisa = pesquisa;
+    }
     
     
     public int getCliente_cod() {

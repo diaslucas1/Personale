@@ -101,7 +101,7 @@ public class DaoFuncionario {
             mod.setTurno(conex.rs.getString("horarioatendimento_func"));
             mod.setData_nasc(conex.rs.getString("nascimento_func"));
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao buscar medico!\nErro:"+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao buscar funcionario!\nErro:"+ex.getMessage());
         }
         
         conex.desconecta();
