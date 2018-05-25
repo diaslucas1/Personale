@@ -54,15 +54,20 @@ public class BeansFuncionario {
     public void setNome(String nome) throws Exception {
         if(nome.isEmpty() || nome.length() < 5) {
             throw new Exception("Nome invalido!");
-        } else if (nome.length() > 5 && nome.length() < 50) {
+        }
+        if (nome.length() > 5 && nome.length() < 50) {
             this.nome = nome;
-        } else if (nome.length() > 50){
+        }
+        if (nome.length() > 50){
             throw new Exception("Nome maior que 50 caracteres!");
-        } else if (Pattern.matches(".*\\d.*", nome) == true || Pattern.matches(".*[^\\w\\s].*", nome)){
+        }
+        if (Pattern.matches(".*\\d.*", nome) == true || Pattern.matches(".*[^\\w\\s].*", nome)){
             throw new Exception("Caracter nao permitido!");
         }
         this.nome = nome;
     }
+    
+
 
     /**
      * @return the cpf
@@ -74,7 +79,12 @@ public class BeansFuncionario {
     /**
      * @param cpf the cpf to set
      */
-    public void setCpf(String cpf) {
+    public void setCpf(String cpf) throws Exception {
+        if(Pattern.matches("\\d{11}", cpf)){
+            this.cpf = cpf;
+        } else {
+            throw new Exception("CPF invalido!");
+        }
         this.cpf = cpf;
     }
 
@@ -104,9 +114,11 @@ public class BeansFuncionario {
     public void setEndereco(String endereco) throws Exception {
         if(endereco.isEmpty() || endereco.length() < 5) {
             throw new Exception("Endereco invalido!");
-        } else if (endereco.length() > 5 && endereco.length() < 100) {
+        }
+        if (endereco.length() > 5 && endereco.length() < 100) {
             this.endereco = endereco;
-        } else if (endereco.length() > 100){
+        }
+        if (endereco.length() > 100){
             throw new Exception("Endereco maior que 100 caracteres!");
         }
         
@@ -158,7 +170,19 @@ public class BeansFuncionario {
     /**
      * @param turno the turno to set
      */
-    public void setTurno(String turno) {
+    public void setTurno(String turno) throws Exception {
+        if(turno.isEmpty() || turno.length() < 5){
+            throw new Exception("Horario de atendimento invalido!");
+        }
+        if(turno.length() > 5 && turno.length() < 50){
+            this.turno = turno;
+        }
+        if(turno.length() > 50){
+            throw new Exception("Horario de atendimento maior que 50 caracteres!");
+        }
+        if (Pattern.matches("[^\\w\\s]+", turno)){
+            throw new Exception("Cadeia contendo apenas simbolos!");
+        }
         this.turno = turno;
     }
 
@@ -172,7 +196,12 @@ public class BeansFuncionario {
     /**
      * @param email the email to set
      */
-    public void setEmail(String email) {
+    public void setEmail(String email) throws Exception {
+        if(Pattern.matches("\\w{2,}@\\w{2,}.\\w{3,}", email) && email.length() <= 50){
+            this.email = email;
+        } else {
+            throw new Exception("E-mail invalido!");
+        }
         this.email = email;
     }
 
@@ -186,7 +215,22 @@ public class BeansFuncionario {
     /**
      * @param formacao the formacao to set
      */
-    public void setFormacao(String formacao) {
+    public void setFormacao(String formacao) throws Exception {
+        if(formacao.isEmpty() || formacao.length() < 5){
+            throw new Exception("Formacao invalida!");
+        }
+        if(formacao.length() > 5 && formacao.length() < 50){
+            this.formacao = formacao;
+        }
+        if(formacao.length() > 50){
+            throw new Exception("Formacao maior que 50 caracteres!");
+        }
+        if (Pattern.matches(".*[^\\w\\s].*", formacao)){
+            throw new Exception("Caracter nao permitido!");
+        }
+        if (Pattern.matches("\\d+", formacao)){
+            throw new Exception("Formacao apenas com numeros!");
+        }
         this.formacao = formacao;
     }
 
@@ -200,7 +244,19 @@ public class BeansFuncionario {
     /**
      * @param atuacao the atuacao to set
      */
-    public void setAtuacao(String atuacao) {
+    public void setAtuacao(String atuacao) throws Exception {
+        if(atuacao.isEmpty() || atuacao.length() < 5) {
+            throw new Exception("Atuacao invalida!");
+        } 
+        if (atuacao.length() > 5 && atuacao.length() < 50) {
+            this.atuacao = atuacao;
+        } 
+        if (atuacao.length() > 50){
+            throw new Exception("Atuacao maior que 50 caracteres!");
+        } 
+        if (Pattern.matches(".*\\d.*", atuacao) == true || Pattern.matches(".*[^\\w\\s].*", atuacao)){
+            throw new Exception("Caracter nao permitido!");
+        }
         this.atuacao = atuacao;
     }
     

@@ -72,7 +72,7 @@ public class DaoProduto {
         conex.desconecta();
     }
     
-    public BeansProdutos buscaProduto(BeansProdutos pro){
+    public BeansProdutos buscaProduto(BeansProdutos pro) throws Exception{
         conex.conexao();
         conex.executaSql("select * from produtos where fabricante_pro like '%"+pro.getPesquisa()+"%'");
         try {

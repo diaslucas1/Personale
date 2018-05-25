@@ -40,11 +40,14 @@ public class BeansCliente {
     public void setNome(String nome) throws Exception {
         if(nome.isEmpty() || nome.length() < 5) {
             throw new Exception("Nome invalido!");
-        } else if (nome.length() > 5 && nome.length() < 50) {
+        } 
+        if (nome.length() > 5 && nome.length() < 50) {
             this.nome = nome;
-        } else if (nome.length() > 50){
+        } 
+        if (nome.length() > 50){
             throw new Exception("Nome maior que 50 caracteres!");
-        } else if (Pattern.matches(".*\\d.*", nome) == true || Pattern.matches(".*[^\\w\\s].*", nome)){
+        } 
+        if (Pattern.matches(".*\\d.*", nome) == true || Pattern.matches(".*[^\\w\\s].*", nome)){
             throw new Exception("Caracter nao permitido!");
         }
         this.nome = nome;
@@ -60,7 +63,12 @@ public class BeansCliente {
     /**
      * @param cpf the cpf to set
      */
-    public void setCpf(String cpf) {
+    public void setCpf(String cpf) throws Exception {
+        if(Pattern.matches("\\d{11}", cpf)){
+            this.cpf = cpf;
+        } else {
+            throw new Exception("CPF invalido!");
+        }
         this.cpf = cpf;
     }
 
@@ -114,9 +122,11 @@ public class BeansCliente {
     public void setEndereco(String endereco) throws Exception {
         if(endereco.isEmpty() || endereco.length() < 5) {
             throw new Exception("Endereco invalido!");
-        } else if (endereco.length() > 5 && endereco.length() < 100) {
+        }
+        if (endereco.length() > 5 && endereco.length() < 100) {
             this.endereco = endereco;
-        } else if (endereco.length() > 100){
+        }
+        if (endereco.length() > 100){
             throw new Exception("Endereco maior que 100 caracteres!");
         }
         
@@ -133,7 +143,12 @@ public class BeansCliente {
     /**
      * @param email the email to set
      */
-    public void setEmail(String email) {
+    public void setEmail(String email) throws Exception {
+        if(Pattern.matches("\\w{2,}@\\w{2,}.\\w{3,}", email) && email.length() <= 50){
+            this.email = email;
+        } else {
+            throw new Exception("E-mail invalido!");
+        }
         this.email = email;
     }
     

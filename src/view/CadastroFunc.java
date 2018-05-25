@@ -6,6 +6,8 @@
 package view;
 
 import ModeloDao.DaoFuncionario;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modeloBeans.BeansFuncionario;
 
@@ -320,77 +322,85 @@ public class CadastroFunc extends javax.swing.JFrame {
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         if(flag==1){
-        mod.setNome(jTextFieldNome.getText());
-        mod.setCpf(jTextFieldCpf.getText());
-        mod.setRg(jTextFieldRg.getText());
-        mod.setTurno(jTextFieldTurno.getText());
-        mod.setAtuacao(jTextFieldAtuacao.getText());
-        mod.setData_nasc(jTextFieldDatanasc.getText());
-        mod.setFormacao(jTextFieldFormacao.getText());
-        mod.setTelefone(jTextFieldTelefone.getText());
-        mod.setEmail(jTextFieldEmail.getText());
-        mod.setEndereco(jTextFieldEndereco.getText());
-        control.Salvar(mod);
-        
-        jTextFieldNome.setText("");
-        jTextFieldCpf.setText("");
-        jTextFieldRg.setText("");
-        jTextFieldTurno.setText("");
-        jTextFieldAtuacao.setText("");
-        jTextFieldDatanasc.setText("");
-        jTextFieldFormacao.setText("");
-        jTextFieldTelefone.setText("");
-        jTextFieldEmail.setText("");
-        jTextFieldEndereco.setText("");
-        jTextFieldNome.setEnabled(false);
-        jTextFieldCpf.setEnabled(false);
-        jTextFieldRg.setEnabled(false);
-        jTextFieldTurno.setEnabled(false);
-        jTextFieldAtuacao.setEnabled(false);
-        jTextFieldDatanasc.setEnabled(false);
-        jTextFieldFormacao.setEnabled(false);
-        jTextFieldTelefone.setEnabled(false);
-        jTextFieldEmail.setEnabled(false);
-        jTextFieldEndereco.setEnabled(false);
-        jButtonSalvar.setEnabled(false);
-        jButtonCancelar.setEnabled(false);
+            try {
+                mod.setNome(jTextFieldNome.getText());
+                mod.setCpf(jTextFieldCpf.getText());
+                mod.setRg(jTextFieldRg.getText());
+                mod.setTurno(jTextFieldTurno.getText());
+                mod.setAtuacao(jTextFieldAtuacao.getText());
+                mod.setData_nasc(jTextFieldDatanasc.getText());
+                mod.setFormacao(jTextFieldFormacao.getText());
+                mod.setTelefone(jTextFieldTelefone.getText());
+                mod.setEmail(jTextFieldEmail.getText());
+                mod.setEndereco(jTextFieldEndereco.getText());
+                control.Salvar(mod);
+                
+                jTextFieldNome.setText("");
+                jTextFieldCpf.setText("");
+                jTextFieldRg.setText("");
+                jTextFieldTurno.setText("");
+                jTextFieldAtuacao.setText("");
+                jTextFieldDatanasc.setText("");
+                jTextFieldFormacao.setText("");
+                jTextFieldTelefone.setText("");
+                jTextFieldEmail.setText("");
+                jTextFieldEndereco.setText("");
+                jTextFieldNome.setEnabled(false);
+                jTextFieldCpf.setEnabled(false);
+                jTextFieldRg.setEnabled(false);
+                jTextFieldTurno.setEnabled(false);
+                jTextFieldAtuacao.setEnabled(false);
+                jTextFieldDatanasc.setEnabled(false);
+                jTextFieldFormacao.setEnabled(false);
+                jTextFieldTelefone.setEnabled(false);
+                jTextFieldEmail.setEnabled(false);
+                jTextFieldEndereco.setEnabled(false);
+                jButtonSalvar.setEnabled(false);
+                jButtonCancelar.setEnabled(false);
+            } catch (Exception ex) {
+                Logger.getLogger(CadastroFunc.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }else {
-            mod.setCodigo((Integer.parseInt(jtCod.getText())));
-            mod.setNome(jTextFieldNome.getText());
-            mod.setCpf(jTextFieldCpf.getText());
-            mod.setRg(jTextFieldRg.getText());
-            mod.setTurno(jTextFieldTurno.getText());
-            mod.setAtuacao(jTextFieldAtuacao.getText());
-            mod.setData_nasc(jTextFieldDatanasc.getText());
-            mod.setFormacao(jTextFieldFormacao.getText());
-            mod.setTelefone(jTextFieldTelefone.getText());
-            mod.setEmail(jTextFieldEmail.getText());
-            mod.setEndereco(jTextFieldEndereco.getText());
-            control.Editar(mod);
-            jtCod.setText("");
-            jTextFieldNome.setText("");
-            jTextFieldCpf.setText("");
-            jTextFieldRg.setText("");
-            jTextFieldTurno.setText("");
-            jTextFieldAtuacao.setText("");
-            jTextFieldDatanasc.setText("");
-            jTextFieldFormacao.setText("");
-            jTextFieldTelefone.setText("");
-            jTextFieldEmail.setText("");
-            jTextFieldEndereco.setText("");
-            jTextFieldNome.setEnabled(false);
-            jTextFieldCpf.setEnabled(false);
-            jTextFieldRg.setEnabled(false);
-            jTextFieldTurno.setEnabled(false);
-            jTextFieldAtuacao.setEnabled(false);
-            jTextFieldDatanasc.setEnabled(false);
-            jTextFieldFormacao.setEnabled(false);
-            jTextFieldTelefone.setEnabled(false);
-            jTextFieldEmail.setEnabled(false);
-            jTextFieldEndereco.setEnabled(false);
-            jButtonSalvar.setEnabled(false);
-            jButtonNovo.setEnabled(true);
-            jButtonCancelar.setEnabled(false);
+            try {
+                mod.setCodigo((Integer.parseInt(jtCod.getText())));
+                mod.setNome(jTextFieldNome.getText());
+                mod.setCpf(jTextFieldCpf.getText());
+                mod.setRg(jTextFieldRg.getText());
+                mod.setTurno(jTextFieldTurno.getText());
+                mod.setAtuacao(jTextFieldAtuacao.getText());
+                mod.setData_nasc(jTextFieldDatanasc.getText());
+                mod.setFormacao(jTextFieldFormacao.getText());
+                mod.setTelefone(jTextFieldTelefone.getText());
+                mod.setEmail(jTextFieldEmail.getText());
+                mod.setEndereco(jTextFieldEndereco.getText());
+                control.Editar(mod);
+                jtCod.setText("");
+                jTextFieldNome.setText("");
+                jTextFieldCpf.setText("");
+                jTextFieldRg.setText("");
+                jTextFieldTurno.setText("");
+                jTextFieldAtuacao.setText("");
+                jTextFieldDatanasc.setText("");
+                jTextFieldFormacao.setText("");
+                jTextFieldTelefone.setText("");
+                jTextFieldEmail.setText("");
+                jTextFieldEndereco.setText("");
+                jTextFieldNome.setEnabled(false);
+                jTextFieldCpf.setEnabled(false);
+                jTextFieldRg.setEnabled(false);
+                jTextFieldTurno.setEnabled(false);
+                jTextFieldAtuacao.setEnabled(false);
+                jTextFieldDatanasc.setEnabled(false);
+                jTextFieldFormacao.setEnabled(false);
+                jTextFieldTelefone.setEnabled(false);
+                jTextFieldEmail.setEnabled(false);
+                jTextFieldEndereco.setEnabled(false);
+                jButtonSalvar.setEnabled(false);
+                jButtonNovo.setEnabled(true);
+                jButtonCancelar.setEnabled(false);
+            } catch (Exception ex) {
+                Logger.getLogger(CadastroFunc.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
         }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
@@ -400,21 +410,25 @@ public class CadastroFunc extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPesquisaActionPerformed
 
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
-        mod.setPesquisa(jTextFieldPesquisa.getText());
-        BeansFuncionario model = control.buscaFuncionario(mod);
-        jTextFieldNome.setText(model.getNome());
-        jtCod.setText(String.valueOf(model.getCodigo()));
-        jTextFieldCpf.setText(model.getCpf());
-        jTextFieldRg.setText(model.getRg());
-        jTextFieldTurno.setText(model.getTurno());
-        jTextFieldAtuacao.setText(model.getAtuacao());
-        jTextFieldDatanasc.setText(model.getData_nasc());
-        jTextFieldFormacao.setText(model.getFormacao());
-        jTextFieldTelefone.setText(model.getTelefone());
-        jTextFieldEmail.setText(model.getEmail());
-        jTextFieldEndereco.setText(model.getEndereco());
-        jButtonEditar.setEnabled(true);
-        jButtonExcluir.setEnabled(true);
+        try {
+            mod.setPesquisa(jTextFieldPesquisa.getText());
+            BeansFuncionario model = control.buscaFuncionario(mod);
+            jTextFieldNome.setText(model.getNome());
+            jtCod.setText(String.valueOf(model.getCodigo()));
+            jTextFieldCpf.setText(model.getCpf());
+            jTextFieldRg.setText(model.getRg());
+            jTextFieldTurno.setText(model.getTurno());
+            jTextFieldAtuacao.setText(model.getAtuacao());
+            jTextFieldDatanasc.setText(model.getData_nasc());
+            jTextFieldFormacao.setText(model.getFormacao());
+            jTextFieldTelefone.setText(model.getTelefone());
+            jTextFieldEmail.setText(model.getEmail());
+            jTextFieldEndereco.setText(model.getEndereco());
+            jButtonEditar.setEnabled(true);
+            jButtonExcluir.setEnabled(true);
+        } catch (Exception ex) {
+            Logger.getLogger(CadastroFunc.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed

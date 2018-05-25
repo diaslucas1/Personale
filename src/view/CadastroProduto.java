@@ -6,6 +6,8 @@
 package view;
 
 import ModeloDao.DaoProduto;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modeloBeans.BeansProdutos;
 
@@ -247,46 +249,54 @@ public class CadastroProduto extends javax.swing.JFrame {
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         if(flag==1){
-        pro.setDescricao(jTextAreaDescricao.getText());
-        pro.setFabricante(jTextFieldFabricante.getText());
-        pro.setCategoria(jTextFieldCategoria.getText());
-        pro.setPreco(Double.parseDouble(jTextFieldPreco.getText()));
-        pro.setEstoque(Integer.parseInt(jTextFieldEstoque.getText()));
-        dao.Salvar(pro);
-        
-        jTextAreaDescricao.setText("");
-        jTextFieldFabricante.setText("");
-        jTextFieldCategoria.setText("");
-        jTextFieldPreco.setText("");
-        jTextFieldEstoque.setText("");
-        jTextAreaDescricao.setEnabled(false);
-        jTextFieldFabricante.setEnabled(false);
-        jTextFieldCategoria.setEnabled(false);
-        jTextFieldPreco.setEnabled(false);
-        jTextFieldEstoque.setEnabled(false);
-        jButtonSalvar.setEnabled(false);
-        jButtonCancelar.setEnabled(false);
+            try {
+                pro.setDescricao(jTextAreaDescricao.getText());
+                pro.setFabricante(jTextFieldFabricante.getText());
+                pro.setCategoria(jTextFieldCategoria.getText());
+                pro.setPreco(Double.parseDouble(jTextFieldPreco.getText()));
+                pro.setEstoque(Integer.parseInt(jTextFieldEstoque.getText()));
+                dao.Salvar(pro);
+                
+                jTextAreaDescricao.setText("");
+                jTextFieldFabricante.setText("");
+                jTextFieldCategoria.setText("");
+                jTextFieldPreco.setText("");
+                jTextFieldEstoque.setText("");
+                jTextAreaDescricao.setEnabled(false);
+                jTextFieldFabricante.setEnabled(false);
+                jTextFieldCategoria.setEnabled(false);
+                jTextFieldPreco.setEnabled(false);
+                jTextFieldEstoque.setEnabled(false);
+                jButtonSalvar.setEnabled(false);
+                jButtonCancelar.setEnabled(false);
+            } catch (Exception ex) {
+                Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }else {
-            pro.setDescricao(jTextAreaDescricao.getText());
-            pro.setFabricante(jTextFieldFabricante.getText());
-            pro.setCategoria(jTextFieldCategoria.getText());
-            pro.setPreco(Double.parseDouble(jTextFieldPreco.getText()));
-            pro.setEstoque(Integer.parseInt(jTextFieldEstoque.getText()));
-            dao.Editar(pro);
-            jTextFieldCod.setText("");
-            jTextAreaDescricao.setText("");
-            jTextFieldFabricante.setText("");
-            jTextFieldCategoria.setText("");
-            jTextFieldPreco.setText("");
-            jTextFieldEstoque.setText("");
-            jTextAreaDescricao.setEnabled(false);
-            jTextFieldFabricante.setEnabled(false);
-            jTextFieldCategoria.setEnabled(false);
-            jTextFieldPreco.setEnabled(false);
-            jTextFieldEstoque.setEnabled(false);
-            jButtonSalvar.setEnabled(false);
-            jButtonNovo.setEnabled(true);
-            jButtonCancelar.setEnabled(false);
+            try {
+                pro.setDescricao(jTextAreaDescricao.getText());
+                pro.setFabricante(jTextFieldFabricante.getText());
+                pro.setCategoria(jTextFieldCategoria.getText());
+                pro.setPreco(Double.parseDouble(jTextFieldPreco.getText()));
+                pro.setEstoque(Integer.parseInt(jTextFieldEstoque.getText()));
+                dao.Editar(pro);
+                jTextFieldCod.setText("");
+                jTextAreaDescricao.setText("");
+                jTextFieldFabricante.setText("");
+                jTextFieldCategoria.setText("");
+                jTextFieldPreco.setText("");
+                jTextFieldEstoque.setText("");
+                jTextAreaDescricao.setEnabled(false);
+                jTextFieldFabricante.setEnabled(false);
+                jTextFieldCategoria.setEnabled(false);
+                jTextFieldPreco.setEnabled(false);
+                jTextFieldEstoque.setEnabled(false);
+                jButtonSalvar.setEnabled(false);
+                jButtonNovo.setEnabled(true);
+                jButtonCancelar.setEnabled(false);
+            } catch (Exception ex) {
+                Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }                                             
 
     }                                        
@@ -308,22 +318,26 @@ public class CadastroProduto extends javax.swing.JFrame {
         int resposta = 0;
         resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente excluir?");
         if(resposta == JOptionPane.YES_OPTION){
-            pro.setCodigo(Integer.parseInt(jTextFieldCod.getText()));
-            dao.Excluir(pro);
-        jTextFieldCod.setText("");
-        jTextAreaDescricao.setText("");
-        jTextFieldFabricante.setText("");
-        jTextFieldCategoria.setText("");
-        jTextFieldPreco.setText("");
-        jTextFieldEstoque.setText("");
-        jTextAreaDescricao.setEnabled(false);
-        jTextFieldFabricante.setEnabled(false);
-        jTextFieldCategoria.setEnabled(false);
-        jTextFieldPreco.setEnabled(false);
-        jTextFieldEstoque.setEnabled(false);
-        jButtonSalvar.setEnabled(false);
-        jButtonEditar.setEnabled(false);
-        jButtonExcluir.setEnabled(false);
+            try {
+                pro.setCodigo(Integer.parseInt(jTextFieldCod.getText()));
+                dao.Excluir(pro);
+                jTextFieldCod.setText("");
+                jTextAreaDescricao.setText("");
+                jTextFieldFabricante.setText("");
+                jTextFieldCategoria.setText("");
+                jTextFieldPreco.setText("");
+                jTextFieldEstoque.setText("");
+                jTextAreaDescricao.setEnabled(false);
+                jTextFieldFabricante.setEnabled(false);
+                jTextFieldCategoria.setEnabled(false);
+                jTextFieldPreco.setEnabled(false);
+                jTextFieldEstoque.setEnabled(false);
+                jButtonSalvar.setEnabled(false);
+                jButtonEditar.setEnabled(false);
+                jButtonExcluir.setEnabled(false);
+            } catch (Exception ex) {
+                Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
@@ -342,15 +356,19 @@ public class CadastroProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
-        pro.setPesquisa(jTextFieldPesquisa.getText());
-        BeansProdutos model = dao.buscaProduto(pro);
-        jTextFieldFabricante.setText(model.getFabricante());
-        jTextFieldCategoria.setText(model.getCategoria());
-        jTextFieldPreco.setText(String.valueOf(model.getPreco()));    
-        jTextFieldEstoque.setText(String.valueOf(model.getEstoque()));
-        jTextAreaDescricao.setText(model.getDescricao());
-        jButtonEditar.setEnabled(true);
-        jButtonExcluir.setEnabled(true);
+        try {
+            pro.setPesquisa(jTextFieldPesquisa.getText());
+            BeansProdutos model = dao.buscaProduto(pro);
+            jTextFieldFabricante.setText(model.getFabricante());
+            jTextFieldCategoria.setText(model.getCategoria());
+            jTextFieldPreco.setText(String.valueOf(model.getPreco()));
+            jTextFieldEstoque.setText(String.valueOf(model.getEstoque()));
+            jTextAreaDescricao.setText(model.getDescricao());
+            jButtonEditar.setEnabled(true);
+            jButtonExcluir.setEnabled(true);
+        } catch (Exception ex) {
+            Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
 
     /**

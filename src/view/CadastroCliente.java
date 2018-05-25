@@ -7,6 +7,8 @@ package view;
 
 import ModeloConection.ConexaoBD;
 import ModeloDao.DaoCliente;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modeloBeans.BeansCliente;
 
@@ -270,53 +272,61 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
        if(flag==1){
-        cli.setNome(jTextFieldNome.getText());
-        cli.setCpf(jTextFieldCpf.getText());
-        cli.setTelefone(jTextFieldTelefone.getText());
-        cli.setDataNascimento(jTextFieldDatanasc.getText());
-        cli.setEndereco(jTextFieldEndereco.getText());
-        cli.setEmail(jTextFieldEmail.getText());
-        dao.Salvar(cli);
-        
-        jTextFieldNome.setText("");
-        jTextFieldCpf.setText("");
-        jTextFieldDatanasc.setText("");
-        jTextFieldTelefone.setText("");
-        jTextFieldEmail.setText("");
-        jTextFieldEndereco.setText("");
-        jTextFieldNome.setEnabled(false);
-        jTextFieldCpf.setEnabled(false);
-        jTextFieldDatanasc.setEnabled(false);
-        jTextFieldTelefone.setEnabled(false);
-        jTextFieldEmail.setEnabled(false);
-        jTextFieldEndereco.setEnabled(false);
-        jButtonSalvar.setEnabled(false);
-        jButtonCancelar.setEnabled(false);
+           try {
+               cli.setNome(jTextFieldNome.getText());
+               cli.setCpf(jTextFieldCpf.getText());
+               cli.setTelefone(jTextFieldTelefone.getText());
+               cli.setDataNascimento(jTextFieldDatanasc.getText());
+               cli.setEndereco(jTextFieldEndereco.getText());
+               cli.setEmail(jTextFieldEmail.getText());
+               dao.Salvar(cli);
+               
+               jTextFieldNome.setText("");
+               jTextFieldCpf.setText("");
+               jTextFieldDatanasc.setText("");
+               jTextFieldTelefone.setText("");
+               jTextFieldEmail.setText("");
+               jTextFieldEndereco.setText("");
+               jTextFieldNome.setEnabled(false);
+               jTextFieldCpf.setEnabled(false);
+               jTextFieldDatanasc.setEnabled(false);
+               jTextFieldTelefone.setEnabled(false);
+               jTextFieldEmail.setEnabled(false);
+               jTextFieldEndereco.setEnabled(false);
+               jButtonSalvar.setEnabled(false);
+               jButtonCancelar.setEnabled(false);
+           } catch (Exception ex) {
+               Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+           }
         }else {
-            cli.setCliente_cod((Integer.parseInt(jTextFieldCod.getText())));
-            cli.setNome(jTextFieldNome.getText());
-            cli.setCpf(jTextFieldCpf.getText());
-            cli.setDataNascimento(jTextFieldDatanasc.getText());
-            cli.setTelefone(jTextFieldTelefone.getText());
-            cli.setEmail(jTextFieldEmail.getText());
-            cli.setEndereco(jTextFieldEndereco.getText());
-            dao.Editar(cli);
-            jTextFieldCod.setText("");
-            jTextFieldNome.setText("");
-            jTextFieldCpf.setText("");
-            jTextFieldDatanasc.setText("");
-            jTextFieldTelefone.setText("");
-            jTextFieldEmail.setText("");
-            jTextFieldEndereco.setText("");
-            jTextFieldNome.setEnabled(false);
-            jTextFieldCpf.setEnabled(false);
-            jTextFieldDatanasc.setEnabled(false);
-            jTextFieldTelefone.setEnabled(false);
-            jTextFieldEmail.setEnabled(false);
-            jTextFieldEndereco.setEnabled(false);
-            jButtonSalvar.setEnabled(false);
-            jButtonNovo.setEnabled(true);
-            jButtonCancelar.setEnabled(false);
+           try {
+               cli.setCliente_cod((Integer.parseInt(jTextFieldCod.getText())));
+               cli.setNome(jTextFieldNome.getText());
+               cli.setCpf(jTextFieldCpf.getText());
+               cli.setDataNascimento(jTextFieldDatanasc.getText());
+               cli.setTelefone(jTextFieldTelefone.getText());
+               cli.setEmail(jTextFieldEmail.getText());
+               cli.setEndereco(jTextFieldEndereco.getText());
+               dao.Editar(cli);
+               jTextFieldCod.setText("");
+               jTextFieldNome.setText("");
+               jTextFieldCpf.setText("");
+               jTextFieldDatanasc.setText("");
+               jTextFieldTelefone.setText("");
+               jTextFieldEmail.setText("");
+               jTextFieldEndereco.setText("");
+               jTextFieldNome.setEnabled(false);
+               jTextFieldCpf.setEnabled(false);
+               jTextFieldDatanasc.setEnabled(false);
+               jTextFieldTelefone.setEnabled(false);
+               jTextFieldEmail.setEnabled(false);
+               jTextFieldEndereco.setEnabled(false);
+               jButtonSalvar.setEnabled(false);
+               jButtonNovo.setEnabled(true);
+               jButtonCancelar.setEnabled(false);
+           } catch (Exception ex) {
+               Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+           }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     }
@@ -386,17 +396,21 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
-        cli.setPesquisa(jTextFieldPesquisa.getText());
-        BeansCliente model = dao.buscaCliente(cli);
-        jTextFieldNome.setText(model.getNome());
-        jTextFieldCod.setText(String.valueOf(model.getCliente_cod()));
-        jTextFieldCpf.setText(model.getCpf());
-        jTextFieldDatanasc.setText(model.getDataNascimento());
-        jTextFieldTelefone.setText(model.getTelefone());
-        jTextFieldEmail.setText(model.getEmail());
-        jTextFieldEndereco.setText(model.getEndereco());
-        jButtonEditar.setEnabled(true);
-        jButtonExcluir.setEnabled(true);
+        try {
+            cli.setPesquisa(jTextFieldPesquisa.getText());
+            BeansCliente model = dao.buscaCliente(cli);
+            jTextFieldNome.setText(model.getNome());
+            jTextFieldCod.setText(String.valueOf(model.getCliente_cod()));
+            jTextFieldCpf.setText(model.getCpf());
+            jTextFieldDatanasc.setText(model.getDataNascimento());
+            jTextFieldTelefone.setText(model.getTelefone());
+            jTextFieldEmail.setText(model.getEmail());
+            jTextFieldEndereco.setText(model.getEndereco());
+            jButtonEditar.setEnabled(true);
+            jButtonExcluir.setEnabled(true);
+        } catch (Exception ex) {
+            Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
 
     /**

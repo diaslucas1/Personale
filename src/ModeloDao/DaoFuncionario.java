@@ -85,7 +85,7 @@ public class DaoFuncionario {
         conex.desconecta();
     }
     
-    public BeansFuncionario buscaFuncionario(BeansFuncionario mod){
+    public BeansFuncionario buscaFuncionario(BeansFuncionario mod) throws Exception{
         conex.conexao();
         conex.executaSql("select * from funcionarios where nome_func like '%"+mod.getPesquisa()+"%'");
         try {

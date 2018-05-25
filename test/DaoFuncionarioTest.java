@@ -57,7 +57,7 @@ public class DaoFuncionarioTest {
     }
     
     @Test
-    public void testNomeInvalido3(){
+    public void testNomeInvalido3(){ //numero ou caractere especial
         BeansFuncionario novoFuncionario = new BeansFuncionario();
         String esperadoResult = "Caracter nao permitido!";
         try {
@@ -317,6 +317,317 @@ public class DaoFuncionarioTest {
             assertEquals(esperadoResult, ex.getMessage());
         }
     }
+    
+    @Test
+    public void testFormacaoValido(){
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        try {
+            novoFuncionario.setFormacao("ensino superior completo");
+            assertEquals("ensino superior completo", novoFuncionario.getFormacao());
+        } catch (Exception ex){
+            fail(ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testFormacaoInvalido1(){ //menor que 5
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "Formacao invalida!";
+        try {
+            novoFuncionario.setFormacao("form");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testFormacaoInvalido2(){ 
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "Formacao invalida!";
+        try {
+            novoFuncionario.setFormacao("");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testFormacaoInvalido3(){ // maior que 50
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "Formacao maior que 50 caracteres!";
+        try {
+            novoFuncionario.setFormacao("formada em esteticismo pela faculdade crista de santos.");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testFormacaoInvalido4(){  //contendo simbolos
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "Caracter nao permitido!";
+        try {
+            novoFuncionario.setFormacao("@@ensino superior");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testFormacaoInvalido5(){ //apenas numeros
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "Formacao apenas com numeros!";
+        try {
+            novoFuncionario.setFormacao("123123123123");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testAtuacaoValido(){
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        try {
+            novoFuncionario.setAtuacao("cabeleireira");
+            assertEquals("cabeleireira", novoFuncionario.getAtuacao());
+        } catch (Exception ex){
+            fail(ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testAtuacaoInvalido1(){ //menor que 5
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "Atuacao invalida!";
+        try {
+            novoFuncionario.setAtuacao("cabe");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testAtuacaoInvalido2(){ 
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "Atuacao invalida!";
+        try {
+            novoFuncionario.setAtuacao("");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testAtuacaoInvalido3(){ //maior que 50
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "Atuacao maior que 50 caracteres!";
+        try {
+            novoFuncionario.setAtuacao("minha área de atuação é como manicure, trabalho na área há 10 anos");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testAtuacaoInvalido4(){ //contendo numeros
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "Caracter nao permitido!";
+        try {
+            novoFuncionario.setAtuacao("manicure 10");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testAtuacaoInvalido5(){ //contendo simbolos
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "Caracter nao permitido!";
+        try {
+            novoFuncionario.setAtuacao("#manicure");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testTurnoValido(){
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        try {
+            novoFuncionario.setTurno("segundas e sexta feiras das 15 as 18");
+            assertEquals("segundas e sexta feiras das 15 as 18", novoFuncionario.getTurno());
+        } catch (Exception ex){
+            fail(ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testTurnoInvalido1(){ //menor que 5
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "Horario de atendimento invalido!";
+        try {
+            novoFuncionario.setTurno("13h");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testTurnoInvalido2(){ 
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "Horario de atendimento invalido!";
+        try {
+            novoFuncionario.setTurno("");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testTurnoInvalido3(){ 
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "Horario de atendimento invalido!";
+        try {
+            novoFuncionario.setTurno("");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testTurnoInvalido4(){ //maior que 50
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "Horario de atendimento maior que 50 caracteres!";
+        try {
+            novoFuncionario.setTurno("toda quarta feira e quinta feira do horário das 15 horas da tarde até as 23 horas no horário de brasília");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testTurnoInvalido5(){ 
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "Cadeia contendo apenas simbolos!";
+        try {
+            novoFuncionario.setTurno("!@#!@#!@#");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testCPFValido(){
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        try {
+            novoFuncionario.setCpf("47041661809");
+            assertEquals("47041661809", novoFuncionario.getCpf());
+        } catch (Exception ex){
+            fail(ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testCPFInvalido1(){ //menor que 11
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "CPF invalido!";
+        try {
+            novoFuncionario.setCpf("48080");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testCPFInvalido2(){ //maior que 11
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "CPF invalido!";
+        try {
+            novoFuncionario.setCpf("4808408404808808");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testCPFInvalido3(){ 
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "CPF invalido!";
+        try {
+            novoFuncionario.setCpf("");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testEmailValido(){
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        try {
+            novoFuncionario.setEmail("lucasdias@gmail.com");
+            assertEquals("lucasdias@gmail.com", novoFuncionario.getEmail());
+        } catch (Exception ex){
+            fail(ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testEmailInvalido1(){ 
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "E-mail invalido!";
+        try {
+            novoFuncionario.setEmail("");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testEmailInvalido2(){  //menor que 5
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "E-mail invalido!";
+        try {
+            novoFuncionario.setEmail("a@a");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testEmailInvalido3(){  //maior que 50
+        BeansFuncionario novoFuncionario = new BeansFuncionario();
+        String esperadoResult = "E-mail invalido!";
+        try {
+            novoFuncionario.setEmail("lucasdiasdossantospereiradomingues@lucasdiasdossantospereiradomingues.com");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+     
+   
+    
+    
     
     
 }

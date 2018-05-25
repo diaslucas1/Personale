@@ -75,7 +75,7 @@ public class DaoCliente {
         conex.desconecta();       
     }
     
-    public BeansCliente buscaCliente(BeansCliente cli){
+    public BeansCliente buscaCliente(BeansCliente cli) throws Exception{
         conex.conexao();
         conex.executaSql("select * from clientes where nome_cli like '%"+cli.getPesquisa()+"%'");
         try {

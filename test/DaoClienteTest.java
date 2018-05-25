@@ -280,6 +280,98 @@ public class DaoClienteTest {
         }
     }
     
-    //email cpf e nome simbolo/letra
+    @Test
+    public void testCPFValido(){
+        BeansCliente novoCliente = new BeansCliente();
+        try {
+            novoCliente.setCpf("47041661809");
+            assertEquals("47041661809", novoCliente.getCpf());
+        } catch (Exception ex){
+            fail(ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testCPFInvalido1(){ //menor que 11
+        BeansCliente novoCliente = new BeansCliente();
+        String esperadoResult = "CPF invalido!";
+        try {
+            novoCliente.setCpf("48080");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testCPFInvalido2(){ //maior que 11
+         BeansCliente novoCliente = new BeansCliente();
+        String esperadoResult = "CPF invalido!";
+        try {
+            novoCliente.setCpf("4808408404808808");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testCPFInvalido3(){ 
+        BeansCliente novoCliente = new BeansCliente();
+        String esperadoResult = "CPF invalido!";
+        try {
+            novoCliente.setCpf("");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testEmailValido(){
+        BeansCliente novoCliente = new BeansCliente();
+        try {
+            novoCliente.setEmail("lucasdias@gmail.com");
+            assertEquals("lucasdias@gmail.com", novoCliente.getEmail());
+        } catch (Exception ex){
+            fail(ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testEmailInvalido1(){ 
+        BeansCliente novoCliente = new BeansCliente();
+        String esperadoResult = "E-mail invalido!";
+        try {
+            novoCliente.setEmail("");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testEmailInvalido2(){  //menor que 5
+        BeansCliente novoCliente = new BeansCliente();
+        String esperadoResult = "E-mail invalido!";
+        try {
+            novoCliente.setEmail("a@a");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testEmailInvalido3(){  //maior que 50
+        BeansCliente novoCliente = new BeansCliente();
+        String esperadoResult = "E-mail invalido!";
+        try {
+            novoCliente.setEmail("lucasdiasdossantospereiradomingues@lucasdiasdossantospereiradomingues.com");
+            fail();
+        } catch(Exception ex){
+            assertEquals(esperadoResult, ex.getMessage());
+        }
+    }
     
 }
