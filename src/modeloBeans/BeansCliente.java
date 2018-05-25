@@ -5,6 +5,8 @@
  */
 package modeloBeans;
 
+import java.util.regex.Pattern;
+
 public class BeansCliente {
          
     private int cliente_cod;
@@ -15,15 +17,6 @@ public class BeansCliente {
     private String telefone;
     private String email;
     private String pesquisa;
-
-    public String getPesquisa() {
-        return pesquisa;
-    }
-
-    public void setPesquisa(String pesquisa) {
-        this.pesquisa = pesquisa;
-    }
-    
     
     public int getCliente_cod() {
         return cliente_cod;
@@ -42,8 +35,18 @@ public class BeansCliente {
 
     /**
      * @param nome the nome to set
+     * @throws java.lang.Exception
      */
-    public void setNome(String nome) {
+    public void setNome(String nome) throws Exception {
+        if(nome.isEmpty() || nome.length() < 5) {
+            throw new Exception("Nome invalido!");
+        } else if (nome.length() > 5 && nome.length() < 50) {
+            this.nome = nome;
+        } else if (nome.length() > 50){
+            throw new Exception("Nome maior que 50 caracteres!");
+        } else if (Pattern.matches(".*\\d.*", nome) == true || Pattern.matches(".*[^\\w\\s].*", nome)){
+            throw new Exception("Caracter nao permitido!");
+        }
         this.nome = nome;
     }
 
@@ -70,12 +73,17 @@ public class BeansCliente {
 
     /**
      * @param dataNascimento the dataNascimento to set
+     * @throws java.lang.Exception
      */
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(String dataNascimento) throws Exception {
+        if(Pattern.matches("\\d{8}", dataNascimento)){
+            this.dataNascimento = dataNascimento;
+        } else {
+            throw new Exception("Data invalida!");
+        }
         this.dataNascimento = dataNascimento;
     }
-
-    
+  
 
     /**
      * @return the telefone
@@ -87,16 +95,31 @@ public class BeansCliente {
     /**
      * @param telefone the telefone to set
      */
-    public void setTelefone(String telefone) {
+    public void setTelefone(String telefone) throws Exception {
+         if(Pattern.matches("\\d{8,12}", telefone)){
+            this.telefone = telefone;
+        } else {
+            throw new Exception("Telefone invalido!");
+        }
         this.telefone = telefone;
     }
+    
+   
     
     
     public String getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(String endereco) {
+    public void setEndereco(String endereco) throws Exception {
+        if(endereco.isEmpty() || endereco.length() < 5) {
+            throw new Exception("Endereco invalido!");
+        } else if (endereco.length() > 5 && endereco.length() < 100) {
+            this.endereco = endereco;
+        } else if (endereco.length() > 100){
+            throw new Exception("Endereco maior que 100 caracteres!");
+        }
+        
         this.endereco = endereco;
     }
 
@@ -112,6 +135,14 @@ public class BeansCliente {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    public String getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(String pesquisa) {
+        this.pesquisa = pesquisa;
     }
 
     

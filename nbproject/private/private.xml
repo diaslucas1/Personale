@@ -5,11 +5,10 @@
         <group>
             <file>file:/home/dias/Personale/src/ModeloDao/DaoProduto.java</file>
             <file>file:/home/dias/Personale/src/view/CadastroCliente.java</file>
-            <file>file:/home/dias/Personale/src/ModeloConection/ConexaoBD.java</file>
             <file>file:/home/dias/Personale/src/view/CadastroFunc.java</file>
-            <file>file:/home/dias/Personale/src/ModeloDao/DaoFuncionario.java</file>
+            <file>file:/home/dias/Personale/src/view/TelaPrincipal.java</file>
             <file>file:/home/dias/Personale/src/view/CadastroProduto.java</file>
-            <file>file:/home/dias/Personale/src/modeloBeans/BeansProdutos.java</file>
+            <file>file:/home/dias/Personale/src/ModeloDao/DaoCliente.java</file>
         </group>
     </open-files>
 </project-private>
